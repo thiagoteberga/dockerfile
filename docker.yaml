@@ -1,0 +1,30 @@
+version: '3.2'
+services:
+    postgresql_db:
+      image: jetherrodrigues/postgresql:v2
+      container_name: postgresql
+      hostname: postgresql
+      ports:
+         - "55432:5432"
+      networks: 
+        - unisal
+      tty: true  
+
+    geoserver-slave-01:
+      image: terrabrasilis-geoserver:v01
+      container_name: geoserver-slave-node-01
+      hostname: geoserver-slave-node-01
+      ports:
+        - "10081:8080"
+      networks: 
+          - terrabrasilis      
+      #entrypoint: ['bash']
+      #environment:
+      #   - DEBUG=true
+      volumes: 
+        - /data/geoserver:/data/geoserver
+      tty: true
+
+networks: 
+    unisal:
+      driver: bridge 

@@ -45,6 +45,16 @@ sudo docker run --rm -v  $PWD:/[app path] -w /[app path] jetherrodrigues/my_java
 ```
 
 #### Maven
+docker pull jetherrodrigues/my_maven:v1
 
+Create maven project
+```sh
+sudo docker run -it --rm -v "$PWD":/[app path] -w /[app path] jetherrodrigues/my_maven:v1 mvn archetype:generate -DgroupId=br.unisal.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -Dinte
+```
+
+Build maven project
+```sh
+sudo docker run -it --rm -v "$PWD":[app path] -w /[app path] jetherrodrigues/my_maven:v1 mvn package
+```
 
 #### Application

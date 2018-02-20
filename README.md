@@ -33,7 +33,16 @@ docker=# create database unisal;
 ```
 
 #### JAVA 8
+docker pull jetherrodrigues/my_java:v1
 
+Compile the java file
+```sh
+sudo docker run --rm -v $PWD:/[app path] -w /[app path] jetherrodrigues/my_java:v1 javac Main.java
+```
+Execute the bytecode(.class) file
+```sh
+sudo docker run --rm -v  $PWD:/[app path] -w /[app path] jetherrodrigues/my_java:v1 java Main
+```
 
 #### Maven
 

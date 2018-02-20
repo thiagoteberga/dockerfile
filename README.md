@@ -45,6 +45,44 @@ sudo docker run --rm -v  $PWD:/[app path] -w /[app path] jetherrodrigues/my_java
 ```
 
 #### Maven
+docker pull jetherrodrigues/my_maven:v1
 
+Create maven project
+```sh
+sudo docker run -it --rm -v "$PWD":/[app path] -w /[app path] jetherrodrigues/my_maven:v1 mvn archetype:generate -DgroupId=br.unisal.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -Dinte
+```
+
+Build maven project
+```sh
+sudo docker run -it --rm -v "$PWD":[app path] -w /[app path] jetherrodrigues/my_maven:v1 mvn package
+```
 
 #### Application
+docker pull jetherrodrigues/my_tomcat:v2
+
+To run tomcat detach
+```sh
+sudo docker run -d --name tomcat -p 10080:8080 jetherrodrigues/my_tomcat:v2
+```
+
+To see the generated admin password
+```sh
+sudo docker logs tomcat
+```
+
+
+#### Run docker.yaml
+```sh
+sudo docker-compose --file docker.yaml up -d
+```
+
+```sh
+sudo docker-compose --file docker.yaml ps
+```
+
+```sh
+sudo docker-compose --file docker.yaml down
+```
+
+
+

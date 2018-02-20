@@ -9,6 +9,10 @@ docker pull jetherrodrigues/postgresql:v1
 sudo docker build -t [your_user_on_docker_hub]/postgresql:[v1] [.]
 ```
 
+```sh
+sudo docker push image:version_tag
+```
+
 #### JAVA 8
 
 

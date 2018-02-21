@@ -70,6 +70,14 @@ To see the generated admin password
 sudo docker logs tomcat
 ```
 
+#### Application 2
+docker pull jetherrodrigues/my_app_tomcat:v1
+
+```sh
+sudo docker run --rm -d --name app -p 15200:8080 jetherrodrigues/my_app_tomcat:v1
+```
+
+`http://localhost:15200/example/old/123`
 
 #### Run docker.yaml
 ```sh
@@ -84,5 +92,11 @@ sudo docker-compose --file docker.yaml ps
 sudo docker-compose --file docker.yaml down
 ```
 
+#### Links uteis
+http://jenkins.jenkins.6c6d6e4a.svc.dockerapp.io:9090/login?from=%2F
 
+https://github.com/carlossg/docker-maven
 
+https://codefresh.io/docker-tutorial/java_docker_pipeline/
+
+https://semaphoreci.com/community/tutorials/build-and-deploy-a-java-web-application-with-docker-and-semaphore

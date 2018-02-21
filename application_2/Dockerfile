@@ -1,8 +1,16 @@
 FROM tomcat:8
 MAINTAINER Jether Rodrigues<jetherrodrigues@gmail.com>
 
-ENV APPLICATION_LINK_WAR http://jenkins.jenkins.6c6d6e4a.svc.dockerapp.io:9090/job/simple_servlet/ws/target/example.war
+RUN  export DEBIAN_FRONTEND=noninteractive
+ENV  DEBIAN_FRONTEND noninteractive
+RUN  dpkg-divert --local --rename --add /sbin/initctl
 
-RUN wget ${APPLICATION_LINK_WAR} -O /usr/local/tomcat/webapps/app.war
+ENV APPLICATION_LINK_WAR https://github.com/aulas-unisal/docker/blob/master/application_2/example.war
+
+RUN mkdir -p /tmp/resources
+
+RUN wget ${APPLICATION_LINK_WAR} -P /tmp/resources \
+    # && unzip -c /tmp/resources/app.war \
+    && mv /tmp/resources/*.war /usr/local/tomcat/webapps
 
 EXPOSE 8080

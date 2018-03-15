@@ -1,12 +1,12 @@
 FROM tomcat:8
-MAINTAINER Jether Rodrigues<jetherrodrigues@gmail.com>
+MAINTAINER Thiago Teberga<thiiteberga@gmail.com>
 
 RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
 RUN  dpkg-divert --local --rename --add /sbin/initctl
 
 COPY application/webflix.war /usr/local/tomcat/webapps
-#ENV APPLICATION_LINK_WAR https://github.com/aulas-unisal/docker/blob/master/application_2/example.war
+#ENV APPLICATION_LINK_WARhttps://github.com/thiagoteberga/dockerfile/blob/master/application_2/thiago.war
 
 #RUN mkdir -p /tmp/resources
 
